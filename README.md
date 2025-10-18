@@ -10,6 +10,7 @@ A collection of React components for creating retro, artistic, and interactive v
 - **PixelBlast**: Interactive pixel-based background with ripples and liquid effects
 - **GlowingPixels**: Render images and videos as individual glowing pixels
 - **NewspaperDither**: Mimic newspaper halftone printing with customizable dot patterns
+- **PixelText**: Render images and videos as ASCII art pixels using Geist Mono font with GPU acceleration
 
 ## Installation
 
@@ -279,6 +280,41 @@ export default function MyComponent() {
       contrast={1.3}
       width={1920}
       height={1080}
+    />
+  );
+}
+```
+
+### PixelText
+
+Renders images and videos as ASCII art pixels using Geist Mono font, with GPU-accelerated effects and customizable character sets.
+
+#### Props
+
+| Prop             | Type      | Default                                                                 | Description                          |
+| ---------------- | --------- | ----------------------------------------------------------------------- | ------------------------------------ |
+| `src`            | `string`  | -                                                                       | Image or video source URL            |
+| `isVideo`        | `boolean` | `false`                                                                 | Whether source is a video            |
+| `pixelSize`      | `number`  | `24`                                                                    | Size of each pixel cell              |
+| `characters`     | `string`  | `" .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"` | Character set for ASCII rendering   |
+| `contrast`       | `number`  | `1.3`                                                                   | Contrast adjustment                  |
+| `saturation`     | `number`  | `1.0`                                                                   | Saturation multiplier                |
+| `backgroundColor`| `string`  | `"#050505"`                                                             | Background color                     |
+
+#### Usage
+
+```tsx
+import PixelText from "@/components/pixeltext";
+
+export default function MyComponent() {
+  return (
+    <PixelText
+      src="/video.mp4"
+      isVideo={true}
+      pixelSize={24}
+      contrast={1.4}
+      saturation={0.9}
+      backgroundColor="#050505"
     />
   );
 }
