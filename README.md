@@ -291,15 +291,15 @@ Renders images and videos as ASCII art pixels using Geist Mono font, with GPU-ac
 
 #### Props
 
-| Prop             | Type      | Default                                                                 | Description                          |
-| ---------------- | --------- | ----------------------------------------------------------------------- | ------------------------------------ |
-| `src`            | `string`  | -                                                                       | Image or video source URL            |
-| `isVideo`        | `boolean` | `false`                                                                 | Whether source is a video            |
-| `pixelSize`      | `number`  | `24`                                                                    | Size of each pixel cell              |
-| `characters`     | `string`  | `" .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"` | Character set for ASCII rendering   |
-| `contrast`       | `number`  | `1.3`                                                                   | Contrast adjustment                  |
-| `saturation`     | `number`  | `1.0`                                                                   | Saturation multiplier                |
-| `backgroundColor`| `string`  | `"#050505"`                                                             | Background color                     |
+| Prop              | Type      | Default                         | Description                                    |
+| ----------------- | --------- | ------------------------------- | ---------------------------------------------- | --------------------------------- |
+| `src`             | `string`  | -                               | Image or video source URL                      |
+| `isVideo`         | `boolean` | `false`                         | Whether source is a video                      |
+| `pixelSize`       | `number`  | `24`                            | Size of each pixel cell                        |
+| `characters`      | `string`  | `" .'`^\",:;Il!i><~+\_-?][}{1)( | \\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao\*#MW&8%B@$"` | Character set for ASCII rendering |
+| `contrast`        | `number`  | `1.3`                           | Contrast adjustment                            |
+| `saturation`      | `number`  | `1.0`                           | Saturation multiplier                          |
+| `backgroundColor` | `string`  | `"#050505"`                     | Background color                               |
 
 #### Usage
 
