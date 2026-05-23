@@ -11,6 +11,7 @@ A collection of React components for creating retro, artistic, and interactive v
 - **GlowingPixels**: Render images and videos as individual glowing pixels
 - **NewspaperDither**: Mimic newspaper halftone printing with customizable dot patterns
 - **PixelText**: Render images and videos as ASCII art pixels using Geist Mono font with GPU acceleration
+- **WordleShader**: Transform video frames into grids of valid Wordle words colored by luminance
 
 ## Installation
 
@@ -285,6 +286,30 @@ export default function MyComponent() {
 }
 ```
 
+### WordleShader
+
+Renders video frames as grids of valid Wordle words colored by pixel luminance. Each 5x6 game board displays real dictionary words, colored gray/yellow/green via the official Wordle two-pass algorithm.
+
+#### Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `src` | `string` | - | Video source URL |
+| `isVideo` | `boolean` | `false` | Whether source is a video |
+| `tileGap` | `number` | `2` | Gap between tiles in pixels |
+| `gameGap` | `number` | `18` | Gap between game boards |
+| `cycleInterval` | `number` | `120` | Frames between full word rebuilds |
+
+#### Usage
+
+```tsx
+import WordleShader from "@/components/wordleshader";
+
+export default function MyComponent() {
+  return <WordleShader src="/video.mp4" isVideo />;
+}
+```
+
 ### PixelText
 
 Renders images and videos as ASCII art pixels using Geist Mono font, with GPU-accelerated effects and customizable character sets.
@@ -322,13 +347,14 @@ export default function MyComponent() {
 
 ## Examples
 
-Check out the `src/app/page.tsx` file for usage examples of all components.
+Check individual component pages in `src/components/` for usage examples.
 
 ## Performance Notes
 
 - Components using Three.js (LineDither, DotDither, PixelBlast) may be resource-intensive
+- WordleShader loads a 12k-word dictionary on init (~111 KB); caching happens lazily per answer word
 - For video content, ensure proper CORS headers are set on your video files
-- NewspaperDither and GlowingPixels use Canvas 2D for better performance with large content
+- NewspaperDither, GlowingPixels, and WordleShader use Canvas 2D for better performance with large content
 
 ## Browser Support
 
